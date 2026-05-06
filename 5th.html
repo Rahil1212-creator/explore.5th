@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore Together</title>
+
+<style>
+
+body{
+margin:0;
+padding:0;
+font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+background:linear-gradient(135deg,#a18cd1 0%,#fbc2eb 100%);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+#container{
+width:90%;
+max-width:400px;
+}
+
+.card{
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(15px);
+-webkit-backdrop-filter:blur(15px);
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.3);
+padding:40px 20px;
+text-align:center;
+color:white;
+box-shadow:0 8px 32px rgba(31,38,135,0.2);
+animation:fadeIn 0.8s ease-out;
+}
+
+h1,h2{
+margin-bottom:25px;
+text-shadow:2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-group{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+button{
+background:#ff4d6d;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:50px;
+font-size:1.1rem;
+font-weight:bold;
+cursor:pointer;
+transition:all 0.3s ease;
+box-shadow:0 4px 15px rgba(255,77,109,0.3);
+}
+
+button:hover{
+transform:scale(1.1);
+background:#ff758f;
+}
+
+#no-btn{
+background:#6c757d;
+box-shadow:0 4px 15px rgba(108,117,125,0.3);
+}
+
+.letter-content{
+font-style:italic;
+line-height:1.6;
+background:rgba(255,255,255,0.1);
+padding:15px;
+border-radius:15px;
+text-align:left;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+<!-- STEP 1 -->
+
+<div id="step1" class="card">
+
+<div style="font-size:4rem;margin-bottom:10px;">
+💖
+</div>
+
+<h1>Dishita, will you explore together with me?</h1>
+
+<div class="btn-group">
+
+<button onclick="nextStep(2)">
+Yes 😊
+</button>
+
+<button id="no-btn" onmouseover="moveButton()">
+No 😢
+</button>
+
+</div>
+</div>
+
+
+<!-- STEP 2 -->
+
+<div id="step2" class="card" style="display:none;">
+
+<h2>So where should we go? 🥂</h2>
+
+<div class="btn-group">
+
+<button onclick="nextStep(3)">
+Khan Market 🍿
+</button>
+
+<button onclick="nextStep(3)">
+Coffee Date ☕
+</button>
+
+<button onclick="nextStep(3)">
+Sunset Walk 🌅
+</button>
+
+</div>
+
+</div>
+
+
+<!-- STEP 3 -->
+
+<div id="step3" class="card" style="display:none;">
+
+<h2>A Little Note For You 💌</h2>
+
+<div class="letter-content">
+
+Dishita,<br><br>
+
+Do you remember our first meeting in Khan Market?<br><br>
+
+And when I first saw you at the diversion of the metro… I think I had already lost the bet in my head.<br><br>
+
+Then came the fun part — me ragebaiting you into that trap, not once but twice. And somehow you still fell for it. 😄<br><br>
+
+And that moment when I held you and kissed you on your cheek… yeah, that memory is still stuck in my head.<br><br>
+
+Pyar vyapar ki jodi na bhaiya ? Buisness karle mere saat Bread Pakode ki kasam kabhi dhokha nahi dunga . <br><br>
+
+</div>
+
+<br>
+
+<button onclick="location.reload()">
+Start Again ❤️
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function nextStep(step){
+
+document.querySelectorAll('.card').forEach(card=>{
+card.style.display='none';
+});
+
+document.getElementById('step'+step).style.display='block';
+
+}
+
+function moveButton(){
+
+const btn=document.getElementById('no-btn');
+
+const x=Math.random()*(window.innerWidth-btn.offsetWidth);
+const y=Math.random()*(window.innerHeight-btn.offsetHeight);
+
+btn.style.position='fixed';
+btn.style.left=x+'px';
+btn.style.top=y+'px';
+
+}
+
+</script>
+
+</body>
+</html>
